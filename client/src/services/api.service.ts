@@ -4,13 +4,14 @@ import { Http } from "@angular/http";
 import { environment } from "../environments/environment";
 import { of } from "rxjs";
 
+const {BASEURL} = environment;
 
 @Injectable({
   providedIn: "root"
 })
 export class ApiService {
   
-  url: string = environment.BASEURL;
+  BASE_URL: string = BASEURL;
   options: object = { withCredentials: true };
 
   constructor(private http: Http) {}
