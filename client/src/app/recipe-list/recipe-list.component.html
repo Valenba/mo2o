@@ -1,0 +1,32 @@
+<h1>Search your favorite recipes</h1>
+<div class="input">
+  <div class="row">
+    <div class="col-sm">
+      <div class="input-group input-group-lg">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-lg">Search</span>
+        </div>
+        <input type="text" [(ngModel)]="pattern" class="form-control" aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-lg">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let recipe of recipes | filter:'title':pattern; let a = index" class="info">
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;height: 30rem;">
+          <img class="card-img-top" *ngIf="recipe.thumbnail" src="{{recipe.thumbnail}}" alt="">
+          <img class="card-img-top" *ngIf="!recipe.thumbnail" src="../../assets/image/image-not-found.png" alt="">
+          <div class="card-body" style="width: 18rem;height: 25rem;">
+            <h5 class="card-title">{{recipe.title}}</h5>
+            <p class="card-text">{{(recipe.ingredients.length>70)? (recipe.ingredients |
+              slice:0:70)+'..':(recipe.ingredients) }}</p>
+            <a href="{{recipe.href}}" class="btn btn-primary" target="blank">Go to recipe</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

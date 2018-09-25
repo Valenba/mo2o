@@ -1,0 +1,18 @@
+@mixin center {
+    display: flex;
+    justify-content: center
+}
+
+h1 , .container, .input{
+    @include center;
+}
+
+.input, h1{
+    padding-bottom: 80px;
+}
+.info{
+    padding-bottom: 100px;
+}
+h1{
+    padding-top: 50px;
+}
